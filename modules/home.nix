@@ -34,7 +34,7 @@
       openssh
     ];
 
-    file.".ssh".source = config.lib.file.mkOutOfStoreSymlink "/home/homelab/.nixos-extra/ssh";
+    # file.".ssh".source = config.lib.file.mkOutOfStoreSymlink "/home/homelab/.nixos-extra/ssh";
     
     sessionVariables = {
       EDITOR = "emacs";
