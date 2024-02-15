@@ -1,6 +1,6 @@
 {
   networking = {
-    hostName = "homelab";
+    hostName = "homelab-nixos";
 
     # Use wpa_supplicant
     wireless.enable = true;

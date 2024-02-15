@@ -39,6 +39,7 @@ Clone my personal configuration (normally, replace `hardware-configuration.nix` 
 
 ```bash
 $ git clone https://github.com/PhilippeOlivier/homelab.git
+$ mv homelab nixos
 $ sudo cp /etc/nixos/hardware-configuration nixos
 $ sudo rm -rf /etc/nixos
 ```
