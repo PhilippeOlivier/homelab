@@ -16,7 +16,7 @@ sudo wipefs -af $DEVICE
 sudo sgdisk -Zo $DEVICE
 
 # Partition the device
-sudo parted -s $DEVICE \
+sudo parted -s -a optimal $DEVICE \
      mklabel gpt \
      mkpart $BOOT_LABEL fat32 1MiB 1GiB \
      set 1 esp on \
@@ -26,10 +26,11 @@ sudo parted -s $DEVICE \
 sudo partprobe $DEVICE
 
 # Boot partition
-sudo mkfs.fat -F 32 -n $BOOT_LABEL $BOOT_PARTITION
-sudo mlabel -N 20240215 -i $BOOT_PARTITION ::
+sudo mkfs.vfat -i 20240215 $BOOT_PARTITION
+#sudo mlabel -N 20240215 -i $BOOT_PARTITION ::
 
 # ZFS pool
+sudo zpool labelclear -f $POOL
 sudo zpool create \
      -O acltype=posixacl \
      -o ashift=12 \
@@ -87,11 +88,9 @@ cat > configuration.nix <<EOF
   # Networking
   networking = {
     hostName = "homelab-nixos";
-    wireless.enable = true;
-    wireless.networks.AwesomenautsEXT.pskRaw = "6521e88582fdc0fda473fa548375627950a87185610768bed19eb41005409161";
     useDHCP = false;
     interfaces = {
-      wlp2s0 = {
+      eno1 = {
         useDHCP = true;
         ipv4.addresses = [
           {
