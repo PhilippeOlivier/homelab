@@ -5,7 +5,6 @@
     # DHCP (set to false because it is deprecated)
     useDHCP = false;
 
-    # Set all interfaces individually
     interfaces = {
       eno1 = {
         useDHCP = true;
