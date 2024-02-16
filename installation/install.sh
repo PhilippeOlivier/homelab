@@ -18,7 +18,7 @@ sudo sgdisk -Zo $DEVICE
 # Partition the device
 sudo parted -s -a optimal $DEVICE \
      mklabel gpt \
-     mkpart $BOOT_LABEL fat32 1MiB 1GiB \
+     mkpart $BOOT_LABEL fat32 0% 1GiB \
      set 1 esp on \
      mkpart $ROOT_LABEL 1GiB 100%
 
@@ -30,7 +30,7 @@ sudo mkfs.vfat -i 20240215 $BOOT_PARTITION
 #sudo mlabel -N 20240215 -i $BOOT_PARTITION ::
 
 # ZFS pool
-sudo zpool labelclear -f $POOL
+# sudo zpool labelclear -f $POOL
 sudo zpool create \
      -O acltype=posixacl \
      -o ashift=12 \
