@@ -29,6 +29,7 @@
 
       # Utilities
       docker-compose
+      cryptsetup
       emacs
       htop
       openssh
