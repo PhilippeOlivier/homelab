@@ -27,10 +27,8 @@ sudo partprobe $DEVICE
 
 # Boot partition
 sudo mkfs.vfat -i 20240215 $BOOT_PARTITION
-#sudo mlabel -N 20240215 -i $BOOT_PARTITION ::
 
 # ZFS pool
-# sudo zpool labelclear -f $POOL
 sudo zpool create \
      -O acltype=posixacl \
      -o ashift=12 \
