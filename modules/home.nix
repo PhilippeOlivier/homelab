@@ -32,6 +32,7 @@
       cryptsetup
       emacs
       htop
+      lz4
       openssh
     ];
 
