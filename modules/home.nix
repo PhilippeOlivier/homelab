@@ -29,11 +29,15 @@
 
       # Utilities
       docker-compose
-      cryptsetup
       emacs
       htop
-      lz4
       openssh
+
+      # Backups
+      cryptsetup
+      lz4
+      mbuffer
+      sanoid
     ];
 
     file.".ssh".source = config.lib.file.mkOutOfStoreSymlink "/home/homelab/.nixos-extra/ssh";
