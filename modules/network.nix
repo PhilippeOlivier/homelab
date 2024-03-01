@@ -2,6 +2,8 @@
   networking = {
     hostName = "homelab-nixos";
 
+    wireless.enable = true;
+    
     # DHCP (set to false because it is deprecated)
     useDHCP = false;
 
