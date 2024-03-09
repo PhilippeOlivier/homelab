@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./modules/boot.nix
     ./modules/crypto.nix
+    ./modules/minetest.nix
     ./modules/network.nix
     ./modules/system.nix
     ./modules/users.nix
