@@ -4,10 +4,16 @@
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = true;  # TODO: false
-      KbdInteractiveAuthentication = true; # TODO: false
+      # Normally:
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      AuthenticationMethods = "publickey";
+
+      # # In order to `ssh-copy-id` a new machine:
+      # PasswordAuthentication = true;
+      # KbdInteractiveAuthentication = true;
+
       PermitRootLogin = "no";
-      # AuthenticationMethods = "publickey";  <-- uncomment
       PrintMotd = false;
     };
   };
